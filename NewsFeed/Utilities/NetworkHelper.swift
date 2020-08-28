@@ -24,9 +24,10 @@ class NetworkHelper<T: ResponseModel> {
         
         ActivityIndicatorHelper.sharedInstance.startLoader()
         let url = URL(string: apiUrl)!
+
+        let search = SearchKeyword()
         
-        
-        let isAlreadySearched = CoreDataStack.shared.isKeywordAlreadySearched(keywordToSearch: searchText)
+        let isAlreadySearched = search.isKeywordAlreadySearched(keywordToSearch: searchText)
         if isAlreadySearched {
             ActivityIndicatorHelper.sharedInstance.stopLoader()
             let model = T(from: [String : AnyObject]())
@@ -34,7 +35,7 @@ class NetworkHelper<T: ResponseModel> {
             resultHandler(.success(model))
             return
         } else {
-            CoreDataStack.shared.addSearchTextToDB(search: searchText)
+            search.addSearchTextToDB(search: searchText)
         }
 
         let urlTask = URLSession.shared.dataTask(with: url) { (data, response, error) in

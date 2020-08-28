@@ -29,12 +29,13 @@ class CoreDataStack {
         
         return container
     }()
-    
-    lazy var managedContext = persistentContainer.viewContext
-    lazy var fetchRequestForKeyword = NSFetchRequest<NSManagedObject>(entityName: "SearchKeyword")
+}
+
+class SearchKeyword: NSManagedObject {
+    let managedContext = CoreDataStack.shared.persistentContainer.viewContext
+    let fetchRequestForKeyword = NSFetchRequest<NSManagedObject>(entityName: "SearchKeyword")
+
     lazy var searchKeywordEntity = NSEntityDescription.entity(forEntityName: "SearchKeyword", in: managedContext)!
-    
-    lazy var keywordObject = NSManagedObject(entity: searchKeywordEntity, insertInto: managedContext)
     func isKeywordAlreadySearched(keywordToSearch: String) -> Bool {
         var isPresent = false
         do {
@@ -50,6 +51,7 @@ class CoreDataStack {
     }
     
     func addSearchTextToDB(search: String) {
+        let keywordObject = NSManagedObject(entity: searchKeywordEntity, insertInto: managedContext)
         keywordObject.setValue(search, forKey: "keyword")
         do {
           try managedContext.save()

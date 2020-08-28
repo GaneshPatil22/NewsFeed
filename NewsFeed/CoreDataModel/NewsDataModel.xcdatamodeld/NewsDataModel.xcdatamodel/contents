@@ -7,7 +7,7 @@
         <attribute name="urlToImage" optional="YES" attributeType="String"/>
     </entity>
     <entity name="SearchKeyword" representedClassName=".SearchKeyword" syncable="YES">
-        <attribute name="keyword" attributeType="String"/>
+        <attribute name="keyword" optional="YES" attributeType="String"/>
     </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="-9" width="128" height="103"/>
