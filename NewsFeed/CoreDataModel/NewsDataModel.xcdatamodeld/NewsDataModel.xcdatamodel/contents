@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Article" representedClassName="Article" syncable="YES" codeGenerationType="class">
+        <attribute name="articleDescription" optional="YES" attributeType="String"/>
+        <attribute name="keyword" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="urlToImage" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SearchKeyword" representedClassName=".SearchKeyword" syncable="YES">
+        <attribute name="keyword" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Article" positionX="-63" positionY="-9" width="128" height="103"/>
+        <element name="SearchKeyword" positionX="-63" positionY="-18" width="128" height="58"/>
+    </elements>
+</model>
